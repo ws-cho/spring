@@ -1,0 +1,8 @@
+글 수정 페이지
+<br>
+
+<form action="/posts/update/<%=@post.id%>" method="POST">
+    <input type="text" name="title" value="<%=@post.title%>">
+    <textarea name="content"><%=@post.content%></textarea>
+    <button>제출</button>
+</form>

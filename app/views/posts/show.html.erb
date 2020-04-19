@@ -1,0 +1,26 @@
+<%= @post.id %> 님의 글
+<br>
+
+제목 : <%= @post.title %>
+<br>
+내용 : <%= @post.content %>
+<br>
+
+댓글쓰기
+<form action="/posts/show/<%=@post.id%>/comments/create" method="POST">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+    작성자 : <input type="text" name="user_name">
+    댓글내용 : <input type="text" name="body">
+    <button type="submit">제출</button>
+</form>
+<br>
+
+<h3>댓글 리스트</h3>
+<% @post.comments.each do |comment| %>
+    댓글 작성자 : <%= comment.user_name %><br>
+    댓글 내용 : <%= comment.body %> <br>
+    <hr>
+<% end %>
+<br>
+
+<a href="/posts/index">목록으로</a>
